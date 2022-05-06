@@ -1,5 +1,0 @@
-w0 w1 i ( ) #
-E->T| E w0 T
-T->F| T w1 F
-F->i| ( E )
-
