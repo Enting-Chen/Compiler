@@ -1,0 +1,4 @@
+w0 w1 i ( ) # GEQ(w0) GEQ(w1) PUSH(i)
+E->T{w0 T GEQ(w0)}
+T->F{w1 F GEQ(w1)}
+F->i PUSH(i)|( E )
