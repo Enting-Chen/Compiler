@@ -1,0 +1,3 @@
+a INT VAR 0
+b INT VAR 4
+c INT VAR 8

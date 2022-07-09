@@ -1,0 +1,32 @@
+Keyword Table:
+   1: int
+   2: main
+   3: if
+   4: else
+   5: while
+
+Delimiter Table:
+   1: (
+   2: )
+   3: {
+   4: ,
+   5: ;
+   6: =
+   7: <
+   8: /
+   9: }
+  10: *
+  11: &&
+  12: ||
+  13: >
+  14: -
+
+Symbol Table:
+   1: a
+   2: b
+   3: c
+
+Constant Table:
+   1: 2
+   2: 0
+   3: 1

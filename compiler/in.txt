@@ -1,0 +1,15 @@
+int main(){
+    int a, b, c;
+    a = 2;
+    if ( a < 0 ){
+        c = 2/2;
+    }
+    else{
+        b = 1*0;
+        c = a && b;
+        c = a || b;
+    }
+    while ( a > 0 ){
+        a = a-1;
+    }
+} 

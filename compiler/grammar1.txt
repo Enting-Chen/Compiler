@@ -1,0 +1,22 @@
+program -> int main ( ) { declarations stmt-sequence }
+declarations -> declaration ; declarations | \epsilon
+declaration -> int identifiers | \epsilon
+identifiers -> ID identifiers'
+identifiers' -> , identifiers | \epsilon
+stmt-sequence -> statement stmt-sequence | \epsilon
+statement -> if-stmt | assign-stmt | while-stmt
+if-stmt -> if ( or-exp ) { stmt-sequence } else-stmt
+else-stmt -> else { stmt-sequence } | \epsilon
+while-stmt -> while ( or-exp ) { stmt-sequence }
+assign-stmt -> ID = or-exp ;
+or-exp -> and-exp or'-exp
+or'-exp -> || or-exp | \epsilon
+and-exp -> comparison-exp and'-exp
+and'-exp -> && and-exp | \epsilon
+comparison-exp -> add-sub-exp comparison'-exp
+comparison'-exp -> < comparison-exp | > comparison-exp | <= comparison-exp | >= comparison-exp | == comparison-exp | != comparison-exp | \epsilon
+add-sub-exp -> mul-div-exp add-sub'-exp
+add-sub'-exp -> + add-sub-exp | - add-sub-exp | \epsilon
+mul-div-exp -> factor mul-div'-exp
+mul-div'-exp -> * mul-div-exp | / mul-div-exp | \epsilon
+factor -> CONSTANT | ID | ( or-exp ) | ! factor

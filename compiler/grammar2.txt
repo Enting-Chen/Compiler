@@ -1,0 +1,22 @@
+program -> int main ( ) { declarations stmt-sequence }
+declarations -> declaration ; declarations | \epsilon
+declaration -> int identifiers | \epsilon
+identifiers -> "SYMBOL-TABLE" ID identifiers'
+identifiers' -> , identifiers | \epsilon
+stmt-sequence -> statement stmt-sequence | \epsilon
+statement -> if-stmt | assign-stmt | while-stmt
+if-stmt -> if ( or-exp ) "IF" { stmt-sequence } else-stmt "IF-END"
+else-stmt -> else "ELSE" { stmt-sequence } | \epsilon
+while-stmt -> while "WHILE" ( or-exp ) "DO" { stmt-sequence } "WHILE-END"
+assign-stmt -> "PUSH" ID = or-exp "ASSIGN" ;
+or-exp -> and-exp or'-exp
+or'-exp -> || or-exp "GEQ(||)" | \epsilon
+and-exp -> comparison-exp and'-exp
+and'-exp -> && and-exp "GEQ(&&)" | \epsilon
+comparison-exp -> add-sub-exp comparison'-exp
+comparison'-exp -> < comparison-exp "GEQ(<)" | > comparison-exp "GEQ(>)" | <= comparison-exp "GEQ(<=)" | >= comparison-exp "GEQ(>=)" | == comparison-exp "GEQ(==)" | != comparison-exp "GEQ(!=)" | \epsilon
+add-sub-exp -> mul-div-exp add-sub'-exp
+add-sub'-exp -> + add-sub-exp "GEQ(+)" | - add-sub-exp "GEQ(-)" | \epsilon
+mul-div-exp -> factor mul-div'-exp
+mul-div'-exp -> * mul-div-exp "GEQ(*)" | / mul-div-exp "GEQ(/)" | \epsilon
+factor -> "PUSH" CONSTANT | "PUSH" ID | ( or-exp ) | ! factor
